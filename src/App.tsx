@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Redirect, Route, Switch } from 'wouter';
 import './App.css';
+import Ipr1 from './ipr1/ipr1';
+import Ipr2 from './ipr2/ipr2';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Route path="">
+          <Redirect to="/ipr1"/>
+        </Route>
+        <Route path="/ipr1">
+          <Ipr1/>
+        </Route>
+        <Route path="/ipr2">
+          <Ipr2/>
+        </Route>
+      </Switch>
+    </>
   );
 }
-
-export default App;
