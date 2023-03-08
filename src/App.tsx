@@ -9,14 +9,14 @@ export default function App() {
   return (
     <>
       <Switch>
-        <Route path="">
-          <Redirect to="/ipr1"/>
-        </Route>
         <Route path="/ipr1">
           <Ipr1/>
         </Route>
         <Route path="/ipr2">
           <Ipr2/>
+        </Route>
+        <Route path="">
+          <Redirect to="/ipr1"/>
         </Route>
       </Switch>
     </>
