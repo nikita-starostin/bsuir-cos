@@ -113,8 +113,8 @@ export class Kr1Utils {
         const w = i % N === 0
           ? new Complex(1, 0)
           : new Complex(Math.cos(-2 * Math.PI * i / N), Math.sin(-2 * Math.PI * i / N));
-        res[i] = Complex.add(evenArr[i], Complex.multiply(w, oddArr[i]));
-        res[i + N / 2] = Complex.subtract(evenArr[i], Complex.multiply(w, oddArr[i]));
+        res.push(Complex.add(evenArr[i], Complex.multiply(w, oddArr[i])));
+        res.push(Complex.subtract(evenArr[i], Complex.multiply(w, oddArr[i])));
       }
     }
 

@@ -7,8 +7,9 @@ export default function Kr1({
   signal,
   restored,
   amplitudes,
-  phases
-}: { signal: number[], restored: number[], amplitudes: number[], phases: number[] }) {
+  phases,
+  restoredDomain = [-50000, 50000]
+}: { signal: number[], restored: number[], amplitudes: number[], phases: number[], restoredDomain?: [number, number]  }) {
   const signalRef = useRef<HTMLDivElement | null>(null);
   const amplitudesRef = useRef<HTMLDivElement | null>(null);
   const restoredRef = useRef<HTMLDivElement | null>(null);
@@ -17,7 +18,7 @@ export default function Kr1({
   useEffect(() => {
     draw(signalRef, toPoints(signal), [ -200, 200 ]);
     draw(amplitudesRef, toPoints(amplitudes), [ -20, 30000 ]);
-    draw(restoredRef, toPoints(restored), [ -50000, 50000 ]);
+    draw(restoredRef, toPoints(restored), restoredDomain);
     draw(phasesRef, toPoints(phases), [ -5, 5 ]);
   }, []);
 

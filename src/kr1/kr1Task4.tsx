@@ -7,6 +7,6 @@ export default function Kr1Task4() {
   const props = useRef(kr1Utils.current.taskFourth());
 
   return <>
-    <Kr1 { ...props.current } />
+    <Kr1 { ...props.current } restoredDomain={[-100, 800]}/>
   </>;
 }
