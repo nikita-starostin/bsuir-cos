@@ -3,6 +3,9 @@ import { Link, Redirect, Route, Switch } from 'wouter';
 import './App.css';
 import Ipr1 from './ipr1/ipr1';
 import Ipr2 from './ipr2/ipr2';
+import Kr1Task2 from './kr1/kr1Task2';
+import Kr1Task3 from './kr1/kr1Task3';
+import Kr1Task4 from './kr1/kr1Task4';
 
 
 export default function App() {
@@ -15,6 +18,9 @@ export default function App() {
         <Link href="/ipr2">
           <a>Ipr 2</a>
         </Link>
+        <Link href="/kr1/2">
+          <a>Kr 1</a>
+        </Link>
       </div>
       <Switch>
         <Route path="/ipr1">
@@ -22,6 +28,18 @@ export default function App() {
         </Route>
         <Route path="/ipr2">
           <Ipr2/>
+        </Route>
+        <Route path="/kr1/2">
+          <Kr1Task2 />
+        </Route>
+        <Route path="/kr1/3">
+          <Kr1Task3 />
+        </Route>
+        <Route path="/kr1/4">
+          <Kr1Task4 />
+        </Route>
+        <Route path="/kr1">
+          <Redirect to="/k1/2" />
         </Route>
         <Route path="">
           <Redirect to="/ipr1"/>
