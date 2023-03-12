@@ -28,15 +28,15 @@ export class Kr1Utils {
     const restored = this.getRestored(N, amplitudes, phases);
 
     return {
-     amplitudes,
-     phases,
-     signal,
-     restored
-    }
+      amplitudes,
+      phases,
+      signal,
+      restored
+    };
   }
 
   taskFourth(N = 512) {
-    const signal = this.getPolyharmonicSignal(N)
+    const signal = this.getPolyharmonicSignal(N);
     const { amplitudes, phases } = this.getFourierFast(N, signal);
     const restored = this.getRestored(N, amplitudes, phases);
 
@@ -45,7 +45,31 @@ export class Kr1Utils {
       phases,
       signal,
       restored
-    }
+    };
+  }
+
+  taskFifth(N = 512) {
+    const signal = this.getPolyharmonicSignal(N);
+    const { amplitudes, phases } = this.getFourierDiscret(N, signal);
+
+    const amplitudesHf = amplitudes.map((v, i) => i >= 30 && i <= 480 ? v : 0);
+    const phasesHf = phases.map((v, i) => i >= 30 && i <= 480 ? v : 0);
+    const restoredHf = this.getRestored(N, amplitudesHf, phasesHf);
+
+    const amplitudesLf = amplitudes.map((v, i) => i < 10 ? v : 0);
+    const phasesLf = phases.map((v, i) => i < 10 ? v : 0);
+    const restoredLf = this.getRestored(N, amplitudesLf, phasesLf);
+
+    const amplitudesBp = amplitudes.map((v, i) => i >= 10 && i < 30 ? v : 0);
+    const phasesBp = phases.map((v, i) => i >= 10 && i < 30 ? v : 0);
+    const restoredBp = this.getRestored(N, amplitudesBp, phasesBp);
+
+    return {
+      signal,
+      restoredHf,
+      restoredLf,
+      restoredBp
+    };
   }
 
   private getPolyharmonicSignal(N: number) {
@@ -78,7 +102,6 @@ export class Kr1Utils {
     return signal;
   }
 
-
   private getFourierFast(N: number, signal: number[]) {
     const complex = Complex.fromArray(signal);
     const fourier = this.getFourierTable(complex);
@@ -94,14 +117,14 @@ export class Kr1Utils {
   private getFourierTable(arr: Complex[]): Complex[] {
     const res: Complex[] = [];
     const N = arr.length;
-    if(N == 2) {
-      res.push(Complex.add(arr[0], arr[1]))
-      res.push(Complex.subtract(arr[0], arr[1]))
+    if (N == 2) {
+      res.push(Complex.add(arr[0], arr[1]));
+      res.push(Complex.subtract(arr[0], arr[1]));
     } else {
       const even: Complex[] = [];
       const odd: Complex[] = [];
 
-      for(let i = 0; i<N/2; ++i) {
+      for (let i = 0; i < N / 2; ++i) {
         even.push(arr[2 * i]);
         odd.push(arr[2 * i + 1]);
       }
@@ -109,7 +132,7 @@ export class Kr1Utils {
       const evenArr = this.getFourierTable(even);
       const oddArr = this.getFourierTable(odd);
 
-      for(let i = 0; i<N/2; ++i) {
+      for (let i = 0; i < N / 2; ++i) {
         const w = i % N === 0
           ? new Complex(1, 0)
           : new Complex(Math.cos(-2 * Math.PI * i / N), Math.sin(-2 * Math.PI * i / N));

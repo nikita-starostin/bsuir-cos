@@ -6,6 +6,7 @@ import Ipr2 from './ipr2/ipr2';
 import Kr1Task2 from './kr1/kr1Task2';
 import Kr1Task3 from './kr1/kr1Task3';
 import Kr1Task4 from './kr1/kr1Task4';
+import Kr1Task5 from './kr1/kr1Task5';
 
 
 export default function App() {
@@ -30,16 +31,19 @@ export default function App() {
           <Ipr2/>
         </Route>
         <Route path="/kr1/2">
-          <Kr1Task2 />
+          <Kr1Task2/>
         </Route>
         <Route path="/kr1/3">
-          <Kr1Task3 />
+          <Kr1Task3/>
         </Route>
         <Route path="/kr1/4">
-          <Kr1Task4 />
+          <Kr1Task4/>
+        </Route>
+        <Route path="/kr1/5">
+          <Kr1Task5/>
         </Route>
         <Route path="/kr1">
-          <Redirect to="/k1/2" />
+          <Redirect to="/k1/2"/>
         </Route>
         <Route path="">
           <Redirect to="/ipr1"/>
