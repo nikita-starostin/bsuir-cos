@@ -43,7 +43,6 @@ export default function Kr1({
   }, []);
 
   return <>
-    <Kr1Header/>
     <h3>{signalLabel}</h3>
     <div ref={ signalRef }></div>
     <h3>{restoredLabel}</h3>

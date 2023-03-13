@@ -1,5 +1,6 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import Kr1 from './components/Kr1';
+import Kr1Header from './components/kr1Header';
 import { Kr1Utils } from './kr1.utils';
 
 
@@ -8,6 +9,8 @@ export default function Kr1Task5() {
   const props = useRef(kr1Utils.current.taskFifth());
 
   return <>
+    <Kr1Header/>
+    <h2>Задание 5</h2>
     <Kr1 signal={ props.current.signal }
          phases={ props.current.restoredHf }
          phasesLabel={ 'ВЧ-фильтр' }

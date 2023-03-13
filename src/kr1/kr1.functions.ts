@@ -1,5 +1,6 @@
 import functionPlot from 'function-plot';
 import React from 'react';
+import { Height } from '../constants';
 
 
 export function draw(
@@ -10,7 +11,7 @@ export function draw(
   functionPlot({
     target: task1Ref.current!,
     width: 1400,
-    height: 800,
+    height: Height,
     yAxis: {
       domain: yDomain
     },

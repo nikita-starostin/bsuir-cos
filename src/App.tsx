@@ -7,6 +7,7 @@ import Kr1Task2 from './kr1/kr1Task2';
 import Kr1Task3 from './kr1/kr1Task3';
 import Kr1Task4 from './kr1/kr1Task4';
 import Kr1Task5 from './kr1/kr1Task5';
+import Kr2 from './kr2/Kr2';
 
 
 export default function App() {
@@ -21,6 +22,9 @@ export default function App() {
         </Link>
         <Link href="/kr1/2">
           <a>Kr 1</a>
+        </Link>
+        <Link href="/kr2">
+          <a>Kr 2</a>
         </Link>
       </div>
       <Switch>
@@ -43,7 +47,10 @@ export default function App() {
           <Kr1Task5/>
         </Route>
         <Route path="/kr1">
-          <Redirect to="/k1/2"/>
+          <Redirect to="/kr1/2"/>
+        </Route>
+        <Route path="/kr2">
+          <Kr2/>
         </Route>
         <Route path="">
           <Redirect to="/ipr1"/>

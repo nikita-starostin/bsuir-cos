@@ -1,6 +1,7 @@
 import functionPlot from 'function-plot';
 import { FunctionPlotAnnotation, FunctionPlotDatum, FunctionPlotOptions } from 'function-plot/dist/types';
 import { useEffect, useRef, useState } from 'react';
+import { Height } from '../constants';
 import { Ipr1Utils } from './ipr1.utils';
 
 
@@ -36,7 +37,7 @@ function Task({ data, variants, options }: { data: number[][][], variants: strin
       functionPlot({
         target: plotRef.current!,
         width: 1400,
-        height: 800,
+        height: Height,
         yAxis: {
           domain: [ -9, 9 ]
         },

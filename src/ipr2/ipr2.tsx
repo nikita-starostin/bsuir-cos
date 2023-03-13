@@ -1,5 +1,6 @@
 import functionPlot from 'function-plot';
 import { useEffect, useRef, useState } from 'react';
+import { Height } from '../constants';
 import { Ipr2Utils } from './ipr2.utils';
 
 
@@ -7,7 +8,7 @@ function draw(task1Ref: React.MutableRefObject<HTMLDivElement | null>, task2Poin
   functionPlot({
     target: task1Ref.current!,
     width: 1400,
-    height: 800,
+    height: Height,
     yAxis: {
       domain: [ 0, 200 ],
       label: 'Error'
