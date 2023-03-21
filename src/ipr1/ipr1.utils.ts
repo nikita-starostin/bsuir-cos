@@ -148,7 +148,9 @@ export class Ipr1Utils {
     const startF = Math.PI / 9;
     const startA = 6;
 
-    const getParams = (n: number) => {
+    const harmonicCount = 5;
+
+    const getHarmonicParams = (n: number) => {
       return {
         f: startf + n * 0.1,
         F: startF + Math.PI * n * 0.01,
@@ -157,15 +159,17 @@ export class Ipr1Utils {
     };
 
     const results: number[][][] = [];
-
     results[0] = [];
     let counter = 0;
     for (let i = 0; i < N; ++i) {
-      const { f, F, A } = getParams(counter);
-      results[0][i] = [ i, this.f(i, A, f, N, F) ];
-      counter++;
-      if (counter === 101) {
-        counter = -99;
+      const sum = 0;
+      for(let j = 0; j < harmonicCount; ++j) {
+        const { f, F, A } = getHarmonicParams(counter);
+        results[0][i] = [ i, this.f(i, A, f, N, F) ];
+        counter++;
+        if (counter === 101) {
+          counter = -99;
+        }
       }
     }
 
