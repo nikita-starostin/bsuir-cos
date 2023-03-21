@@ -100,13 +100,32 @@ export class Ipr1Utils {
   }
 
   task3(N = 512): [ number[][][], string[] ] {
-    const f = 4;
-    const F = Math.PI / 9;
-    const A = 6;
-    const k = 3;
-
-    const titles = [
-      'K = 3'
+    const harmonics = [
+      {
+        A: 6,
+        F: Math.PI / 6,
+        f: 1
+      },
+      {
+        A: 6,
+        F: Math.PI / 2,
+        f: 2
+      },
+      {
+        A: 6,
+        F: Math.PI / 3,
+        f: 3
+      },
+      {
+        A: 6,
+        F: Math.PI / 9,
+        f: 4
+      },
+      {
+        A: 6,
+        F: 0,
+        f: 5
+      }
     ];
 
     const results: number[][][] = [];
@@ -114,13 +133,14 @@ export class Ipr1Utils {
     results[0] = [];
     for (let i = 0; i < N; ++i) {
       let sum = 0;
-      for (let j = 0; j < k; ++j) {
+      for (let j = 0; j < harmonics.length; ++j) {
+        const { A, f, F } = harmonics[j];
         sum += this.f(i, A, f, N, F);
       }
       results[0][i] = [ i, sum ];
     }
 
-    return [ results, titles ];
+    return [ results, [] ];
   }
 
   task4(N = 512): [ number[][][], string[] ] {
@@ -144,7 +164,7 @@ export class Ipr1Utils {
       const { f, F, A } = getParams(counter);
       results[0][i] = [ i, this.f(i, A, f, N, F) ];
       counter++;
-      if(counter === 101) {
+      if (counter === 101) {
         counter = -99;
       }
     }
