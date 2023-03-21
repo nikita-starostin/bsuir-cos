@@ -29,8 +29,8 @@ export class Kr2Utils {
   }
 
   getSignal(N = 512) {
-    const b1 = 0.001;
-    const b2 = 100;
+    const b1 = 100;
+    const b2 = 0.001;
     const signal = genArray(
       N,
       i => {

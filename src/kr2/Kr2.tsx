@@ -9,9 +9,9 @@ function Signal({ signal, amplitudes, phases }: { signal: number[], amplitudes: 
   const phasesRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    draw(signalRef, toPoints(signal), [ -2500, 2500 ]);
-    draw(amplitudesRef, toPoints(amplitudes), [ -20, 20 ]);
-    draw(phasesRef, toPoints(phases), [ -100, 100 ]);
+    draw(signalRef, toPoints(signal), [ -120, 120 ]);
+    draw(amplitudesRef, toPoints(amplitudes), [ -1, 3 ]);
+    draw(phasesRef, toPoints(phases), [ -60, 60 ]);
   }, []);
 
   return <>
