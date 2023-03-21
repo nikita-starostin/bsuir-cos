@@ -62,7 +62,8 @@ export default function Ipr1() {
   const [ data2, variants2 ] = ipr1.task2B();
   const [ data3, variants3 ] = ipr1.task2C();
   const [ data4, variants4 ] = ipr1.task3();
-  const [ data5, variants5 ] = ipr1.task4();
+  const [ data5, variants5 ] = ipr1.task3PhaseChanged();
+  const [ data6, variants6 ] = ipr1.task4();
 
   return <>
     <h1>Ipr1 - скролить вниз, чтобы увидеть все графики</h1>
@@ -77,19 +78,28 @@ export default function Ipr1() {
     <Task data={ data3 }
           variants={ variants3 }/>
     <h2>Задание 3</h2>
+    <h3>Оригинальный полигармонический сигнал</h3>
     <Task data={ data4 }
           variants={ variants4 }
           options={ {
             yAxis: {
-              domain: [ -20, 20 ]
+              domain: [ -30, 30 ]
             }
           } }/>
-    <h2>Задание 4</h2>
+    <h3>Полигармонический сигнал, в котором у гармоник меняется только фаза</h3>
     <Task data={ data5 }
           variants={ variants5 }
           options={ {
             yAxis: {
-              domain: [ -50, 50 ]
+              domain: [ -30, 30 ]
+            }
+          } }/>
+    <h2>Задание 4</h2>
+    <Task data={ data6 }
+          variants={ variants6 }
+          options={ {
+            yAxis: {
+              domain: [ -25, 25 ]
             }
           } }/>
   </>;

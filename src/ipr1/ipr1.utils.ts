@@ -1,3 +1,31 @@
+const harmonics = [
+  {
+    A: 6,
+    F: Math.PI / 6,
+    f: 1
+  },
+  {
+    A: 6,
+    F: Math.PI / 2,
+    f: 2
+  },
+  {
+    A: 6,
+    F: Math.PI / 3,
+    f: 3
+  },
+  {
+    A: 6,
+    F: Math.PI / 9,
+    f: 4
+  },
+  {
+    A: 6,
+    F: 0,
+    f: 5
+  }
+];
+
 export class Ipr1Utils {
   f(n: number, A: number, f: number, N: number, F: number) {
     const angle = (2 * Math.PI * f * n) / N;
@@ -100,34 +128,6 @@ export class Ipr1Utils {
   }
 
   task3(N = 512): [ number[][][], string[] ] {
-    const harmonics = [
-      {
-        A: 6,
-        F: Math.PI / 6,
-        f: 1
-      },
-      {
-        A: 6,
-        F: Math.PI / 2,
-        f: 2
-      },
-      {
-        A: 6,
-        F: Math.PI / 3,
-        f: 3
-      },
-      {
-        A: 6,
-        F: Math.PI / 9,
-        f: 4
-      },
-      {
-        A: 6,
-        F: 0,
-        f: 5
-      }
-    ];
-
     const results: number[][][] = [];
 
     results[0] = [];
@@ -135,6 +135,23 @@ export class Ipr1Utils {
       let sum = 0;
       for (let j = 0; j < harmonics.length; ++j) {
         const { A, f, F } = harmonics[j];
+        sum += this.f(i, A, f, N, F);
+      }
+      results[0][i] = [ i, sum ];
+    }
+
+    return [ results, [] ];
+  }
+
+  task3PhaseChanged(N = 512): [number[][][], string[]] {
+    const results: number[][][] = [];
+    const { A, f } = harmonics[0];
+
+    results[0] = [];
+    for (let i = 0; i < N; ++i) {
+      let sum = 0;
+      for (let j = 0; j < harmonics.length; ++j) {
+        const { F } = harmonics[j];
         sum += this.f(i, A, f, N, F);
       }
       results[0][i] = [ i, sum ];
