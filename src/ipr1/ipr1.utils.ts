@@ -4,7 +4,7 @@ export class Ipr1Utils {
     return A * Math.sin(angle + F);
   }
 
-  taskA(N = 512): [ number[][][], string[] ] {
+  task2A(N = 512): [ number[][][], string[] ] {
     const A = 6;
     const f = 3;
     const FVariants = [
@@ -35,7 +35,7 @@ export class Ipr1Utils {
     return [ results, fVariantsTitles ];
   }
 
-  taskB(N = 512): [ number[][][], string[] ] {
+  task2B(N = 512): [ number[][][], string[] ] {
     const A = 8;
     const F = Math.PI / 4;
     const fVariants = [
@@ -67,7 +67,7 @@ export class Ipr1Utils {
     return [ results, fVariantsTitles ];
   }
 
-  taskC(N = 512): [ number[][][], string[] ] {
+  task2C(N = 512): [ number[][][], string[] ] {
     const f = 5;
     const F = Math.PI / 4;
     const AVariants = [
@@ -99,7 +99,7 @@ export class Ipr1Utils {
     return [ results, aVariantsTitles ];
   }
 
-  taskD(N = 512): [ number[][][], string[] ] {
+  task3(N = 512): [ number[][][], string[] ] {
     const f = 4;
     const F = Math.PI / 9;
     const A = 6;
@@ -123,7 +123,7 @@ export class Ipr1Utils {
     return [ results, titles ];
   }
 
-  taskE(N = 512): [ number[][][], string[] ] {
+  task4(N = 512): [ number[][][], string[] ] {
     const startf = 4;
     const startF = Math.PI / 9;
     const startA = 6;

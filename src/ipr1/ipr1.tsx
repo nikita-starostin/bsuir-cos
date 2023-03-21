@@ -58,11 +58,11 @@ function Task({ data, variants, options }: { data: number[][][], variants: strin
 
 export default function Ipr1() {
   const [ ipr1 ] = useState(new Ipr1Utils());
-  const [ data1, variants1 ] = ipr1.taskA();
-  const [ data2, variants2 ] = ipr1.taskB();
-  const [ data3, variants3 ] = ipr1.taskC();
-  const [ data4, variants4 ] = ipr1.taskD();
-  const [ data5, variants5 ] = ipr1.taskE();
+  const [ data1, variants1 ] = ipr1.task2A();
+  const [ data2, variants2 ] = ipr1.task2B();
+  const [ data3, variants3 ] = ipr1.task2C();
+  const [ data4, variants4 ] = ipr1.task3();
+  const [ data5, variants5 ] = ipr1.task4();
 
   return <>
     <h1>Ipr1 - скролить вниз, чтобы увидеть все графики</h1>
