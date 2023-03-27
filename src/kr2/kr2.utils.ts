@@ -34,8 +34,8 @@ export class Kr2Utils {
       i => {
         const a = b1 * Math.sin(2 * Math.PI * i / N);
         let b = 0;
+        const oneOrMinusOne = Math.random() <= 0.5 ? -1 : 1;
         for (let j = 50; j <= 70; ++j) {
-          const oneOrMinusOne = Math.random() <= 0.5 ? -1 : 1;
           b += Math.pow(-1, oneOrMinusOne) * b2 * Math.sin(2 * Math.PI * j * i / N);
         }
         return a + b;

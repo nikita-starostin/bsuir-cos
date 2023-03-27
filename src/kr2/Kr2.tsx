@@ -42,6 +42,7 @@ export default function Kr2() {
   const kr2Utils = useRef(new Kr2Utils());
   const [ b1, setB1 ] = useState(100);
   const [ b2, setB2 ] = useState(0.001);
+  const [ b3, setB3 ] = useState(0.001);
   const [ signals, setSignals ] = useState(kr2Utils.current.doJob(b1, b2));
   const firstRenderRef = useRef(true);
 
@@ -56,7 +57,7 @@ export default function Kr2() {
   return <>
     <h1>Kr2 - скролить вниз, чтобы увидеть все графики</h1>
     <p>
-      Графики обновляются автоматически при обновлении b1, b2.
+      Графики обновляются автоматически при обновлении b1, b2, b3.
     </p>
     <div>
       <label style={ { fontWeight: 'bold' } }
@@ -77,6 +78,16 @@ export default function Kr2() {
              id="b2Input"
              type="number"
              onChange={ e => setB2(+e.target.value) }/>
+    </div>
+    <div>
+      <label style={ { fontWeight: 'bold' } }
+             htmlFor="b3Input">
+        b3:
+      </label>
+      <input value={ b3 }
+             id="b3Input"
+             type="number"
+             onChange={ e => setB3(+e.target.value) }/>
     </div>
     <h2>Исходный</h2>
     <Signal { ...signals.original }
