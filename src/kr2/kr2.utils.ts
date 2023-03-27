@@ -30,15 +30,16 @@ export class Kr2Utils {
 
   getSignal(N = 512) {
     const b1 = 100;
-    const b2 = 0.001;
+    const b2 = 0.01;
     const signal = genArray(
       N,
       i => {
         const a = b1 * Math.sin(2 * Math.PI * i / N);
         let b = 0;
         for (let j = 50; j <= 70; ++j) {
-          b += b2 * Math.sin(2 * Math.PI * j * i / N);
+          b += Math.random() * b2 * Math.sin(2 * Math.PI * j * i / N);
         }
+        console.log(a, b);
         return a + b;
       }
     );
