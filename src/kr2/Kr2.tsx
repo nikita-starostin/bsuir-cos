@@ -46,27 +46,27 @@ export default function Kr2() {
     <h1>Kr2 - скролить вниз, чтобы увидеть все графики</h1>
     <h2>Исходный</h2>
     <Signal { ...signals.current.original }
-            signalDomain={[-1500, 1500]}
+            signalDomain={[-200, 200]}
             amplitudesDomain={[-8, 8]}
-            phasesDomain={[-20, 60]}
+            phasesDomain={[-60, 60]}
     />
     <h2>Скользящее окно</h2>
     <Signal { ...signals.current.movingAverage }
             signalDomain={[-120, 120]}
-            amplitudesDomain={[-8, 8]}
-            phasesDomain={[-10, 10]}
+            amplitudesDomain={[-2, 4]}
+            phasesDomain={[-60, 60]}
     />
     <h2>Парабола четвёртой степени</h2>
     <Signal { ...signals.current.fourthDegreeParabola }
-            signalDomain={[-1500, 1500]}
-            amplitudesDomain={[-8, 8]}
-            phasesDomain={[-35, 35]}
+            signalDomain={[-200, 200]}
+            amplitudesDomain={[-1, 1]}
+            phasesDomain={[-60, 60]}
     />
     <h2>Медианная фильтрация</h2>
     <Signal { ...signals.current.mediumMedian }
-            signalDomain={[-600, 600]}
-            amplitudesDomain={[-20, 20]}
-            phasesDomain={[-15, 15]}
+            signalDomain={[-200, 200]}
+            amplitudesDomain={[-2, 2]}
+            phasesDomain={[-60,60]}
     />
   </>;
 }
