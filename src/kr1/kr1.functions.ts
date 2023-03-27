@@ -40,3 +40,7 @@ export function genArray<TOut>(size: number, generator: (i: number) => TOut): TO
 
   return res;
 }
+
+export function toMaxMin(arr: number[]): [number, number] {
+  return [Math.min(...arr) - 2, Math.max(...arr) + 2]
+}

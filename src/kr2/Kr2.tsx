@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { draw, toPoints } from '../kr1/kr1.functions';
+import { draw, toMaxMin, toPoints } from '../kr1/kr1.functions';
 import { Kr2Utils } from './kr2.utils';
 
 
@@ -46,7 +46,6 @@ export default function Kr2() {
   const firstRenderRef = useRef(true);
 
   useEffect(() => {
-    console.log(firstRenderRef.current);
     if(!firstRenderRef.current) {
       setSignals(kr2Utils.current.doJob(b1, b2));
     } else {
@@ -81,25 +80,25 @@ export default function Kr2() {
     </div>
     <h2>Исходный</h2>
     <Signal { ...signals.original }
-            signalDomain={ [ -200, 200 ] }
+            signalDomain={ toMaxMin(signals.original.signal) }
             amplitudesDomain={ [ -8, 8 ] }
             phasesDomain={ [ -60, 60 ] }
     />
     <h2>Скользящее окно</h2>
     <Signal { ...signals.movingAverage }
-            signalDomain={ [ -120, 120 ] }
+            signalDomain={ toMaxMin(signals.movingAverage.signal) }
             amplitudesDomain={ [ -2, 4 ] }
             phasesDomain={ [ -60, 60 ] }
     />
     <h2>Парабола четвёртой степени</h2>
     <Signal { ...signals.fourthDegreeParabola }
-            signalDomain={ [ -200, 200 ] }
+            signalDomain={ toMaxMin(signals.fourthDegreeParabola.signal) }
             amplitudesDomain={ [ -1, 1 ] }
             phasesDomain={ [ -60, 60 ] }
     />
     <h2>Медианная фильтрация</h2>
     <Signal { ...signals.mediumMedian }
-            signalDomain={ [ -200, 200 ] }
+            signalDomain={ toMaxMin(signals.mediumMedian.signal) }
             amplitudesDomain={ [ -2, 2 ] }
             phasesDomain={ [ -60, 60 ] }
     />
