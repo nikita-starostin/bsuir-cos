@@ -2,8 +2,8 @@ import { genArray } from '../kr1/kr1.functions';
 
 
 export class Kr2Utils {
-  doJob(N = 512) {
-    const signal = this.getSignal(N);
+  doJob(b1: number, b2: number, N = 512) {
+    const signal = this.getSignal(b1, b2, N);
     const movingAverage = this.getMovingAverage(signal);
     const fourthDegreeParabola = this.getFourthDegreeParabola(signal);
     const mediumMedian = this.getMediumMedian(signal);
@@ -28,9 +28,7 @@ export class Kr2Utils {
     };
   }
 
-  getSignal(N = 512) {
-    const b1 = 100;
-    const b2 = 0.001;
+  getSignal(b1: number, b2: number, N = 512) {
     const signal = genArray(
       N,
       i => {
